@@ -1,1 +1,1 @@
-# fixerAI
+This project is an AI-powered local service marketplace built using a serverless architecture.The system includes a web frontend for users and workers, backend API's for business logic, and AI layer for intent detection and matching, and a cloud-hosted database for persistence.
