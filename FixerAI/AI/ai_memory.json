@@ -1,0 +1,25 @@
+{
+    "roles": {
+        "plumber": [
+            "pipe leakage",
+            "water overflow",
+            "tap not working"
+        ],
+        "electrician": [
+            "power cut",
+            "short circuit",
+            "fan not working"
+        ]
+    },
+    "status_explanations": {
+        "open": "Request created, waiting for worker",
+        "accepted": "Worker has accepted your request",
+        "completed": "Service has been completed"
+    },
+    "faq": [
+        {
+            "q": "which worker for water leak",
+            "a": "You should choose a plumber for water leakage problems."
+        }
+    ]
+}

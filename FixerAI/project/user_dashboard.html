@@ -1,0 +1,201 @@
+<html>
+
+<head>
+    <title>User Dashboard - FixerAI</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <span class="brand">FixerAI</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="#">Services</a>
+            <a href="#">Native</a>
+        </nav>
+
+        <div class="search-location-container">
+            <div class="location-picker">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="location-icon">
+                    <path d="M12 21C16 17 20 13 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13 8 17 12 21Z"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11Z"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <input type="text" value="Bangalore, India" readonly>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="dropdown-icon">
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+
+            <div class="search-bar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="search-icon">
+                    <path
+                        d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <input type="text" placeholder="Search for 'Kitchen cleaning'">
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="icon-btn-large" id="themeToggle" title="Toggle Theme">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+            <button class="icon-btn-large" id="logoutBtn" title="Logout">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- SERVICES TAB (Main View) -->
+    <div id="view-services" class="dashboard-container tab-content">
+        <!-- LEFT: CREATE REQUEST (MAIN) -->
+        <main class="main-content">
+            <section class="create-request-card">
+                <div class="card-header-styled">
+                    <h3>Create New Request</h3>
+                    <p>What can we fix for you today?</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Type</label>
+                    <div class="select-wrapper">
+                        <select id="serviceType">
+                            <option value="Plumber">💧 Plumber</option>
+                            <option value="Electrician">⚡ Electrician</option>
+                            <option value="Carpenter">🪚 Carpenter</option>
+                            <option value="Cleaner">🧹 Cleaner</option>
+                            <option value="Mechanic">🔧 Mechanic</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+                    <input id="location" type="text" placeholder="e.g. 123 Main St, Apt 4B" />
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="description" rows="4" placeholder="Describe the issue in detail..."></textarea>
+                </div>
+
+                <button id="submitRequest" class="btn-primary">
+                    <span>Submit Request</span>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </button>
+                <p id="msg" style="margin-top: 10px; font-size: 14px;"></p>
+            </section>
+        </main>
+
+        <!-- RIGHT: MY REQUESTS (SIDEBAR) -->
+        <aside class="side-content">
+            <div class="requests-panel">
+                <div class="panel-header" id="toggleRequests">
+                    <h3>My Activies</h3>
+                    <button class="icon-btn" id="arrowBtn">
+                        <svg id="arrowIcon" width="20" height="20" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="myRequestsContainer" class="requests-list-container">
+                    <ul id="userRequestsList" class="styled-list">
+                        <!-- Items injected by JS -->
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- NATIVE TAB (Placeholder) -->
+    <div id="view-native" class="dashboard-container tab-content hidden">
+        <main class="main-content" style="width: 100%;">
+            <section class="create-request-card">
+                <div class="card-header-styled">
+                    <h3>Native Services</h3>
+                    <p>Authentic local services near you</p>
+                </div>
+
+                <div style="padding: 40px; text-align: center; color: #64748b;">
+                    <div style="font-size: 3rem; margin-bottom: 20px;">🥥 🏺 🥘</div>
+                    <h3>Coming Soon to Your Location!</h3>
+                    <p>We are onboarding specialized local experts for:</p>
+                    <ul
+                        style="list-style: none; padding: 0; margin-top: 20px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                        <li style="background: #f1f5f9; padding: 10px 20px; border-radius: 20px;">Tender Coconut
+                            Delivery</li>
+                        <li style="background: #f1f5f9; padding: 10px 20px; border-radius: 20px;">Pottery Repair</li>
+                        <li style="background: #f1f5f9; padding: 10px 20px; border-radius: 20px;">Home Cooking</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="toast"></div>
+    <!-- AI CHAT WIDGET -->
+    <div class="ai-chat-widget">
+        <div id="aiChatWindow" class="ai-chat-window">
+            <div class="ai-chat-header">
+                <h3>✨ FixerAI Bot</h3>
+                <button class="icon-btn" id="closeAI" style="color: white;">
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div id="aiMessages" class="ai-chat-messages">
+                <div class="message ai">
+                    Hello! I'm your FixerAI assistant. How can I help you today?
+                </div>
+            </div>
+            <div id="typingIndicator" class="typing-indicator">
+                <div class="typing-dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="ai-chat-input-area">
+                <input type="text" id="aiInput" placeholder="Type your message..." />
+                <button id="askAI" class="ai-send-btn">
+                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <button id="toggleAI" class="ai-chat-button">
+            <svg width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script type="module" src="../js/user_AI.js"></script>
+</body>
+
+</html>

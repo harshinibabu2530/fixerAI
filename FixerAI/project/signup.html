@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sign Up</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="../AI/auth.css">
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Create Account</h2>
+            <p class="subtitle">Join our platform</p>
+
+            <div class="input-group">
+                <input type="email" id="signupEmail" required />
+                <label>Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="signupPassword" required />
+                <label>Password</label>
+                <span class="toggle" onclick="togglePassword('signupPassword')">👁️</span>
+            </div>
+
+            <div class="role-select">
+                <label>
+                    <input type="radio" name="role" value="user" checked />
+                    User
+                </label>
+                <label>
+                    <input type="radio" name="role" value="worker" />
+                    Worker
+                </label>
+            </div>
+
+            <button id="signupBtn">Sign Up</button>
+
+            <p class="switch">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
